@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Name Check</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5f5f5;
+}
+
+.page{
+    display:none;
+    min-height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+#page1{
+    display:flex;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+input{
+    padding:10px;
+    width:250px;
+    font-size:16px;
+}
+
+button{
+    padding:10px 20px;
+    font-size:16px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+#error{
+    color:red;
+    margin-top:10px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+    padding:20px;
+    width:90%;
+}
+
+.gallery img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    background:#ddd;
+}
+
+.logo{
+    max-width:300px;
+    margin:20px;
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page">
+    <div class="container">
+        <h2>Enter Your Name</h2>
+
+        <input type="text" id="nameInput" placeholder="Enter name">
+        <br>
+        <button onclick="checkName()">Continue</button>
+
+        <div id="error"></div>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+
+    <img
+        class="logo"
+        src="https://i.postimg.cc/4xC8TVMc/NC-CINFO-page-head-logo.png"
+        alt="Logo"
+    >
+
+    <h1>Welcome!</h1>
+
+    <div class="gallery">
+
+        <!-- Replace these URLs later -->
+
+        <img src="IMAGE_LINK_1" alt="Image 1">
+        <img src="IMAGE_LINK_2" alt="Image 2">
+        <img src="IMAGE_LINK_3" alt="Image 3">
+        <img src="IMAGE_LINK_4" alt="Image 4">
+        <img src="IMAGE_LINK_5" alt="Image 5">
+        <img src="IMAGE_LINK_6" alt="Image 6">
+        <img src="IMAGE_LINK_7" alt="Image 7">
+        <img src="IMAGE_LINK_8" alt="Image 8">
+        <img src="IMAGE_LINK_9" alt="Image 9">
+        <img src="IMAGE_LINK_10" alt="Image 10">
+
+    </div>
+
+</div>
+
+<script>
+function checkName() {
+    const name = document
+        .getElementById("nameInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if (name === "imeth" || name === "savithu") {
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "flex";
+    } else {
+        document.getElementById("error").textContent =
+            "Access denied. Incorrect name.";
+    }
+}
+</script>
+
+</body>
+</html>
